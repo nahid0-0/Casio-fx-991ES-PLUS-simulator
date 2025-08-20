@@ -38,10 +38,10 @@
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
         <item name="android:padding">4dp</item>
-        <item name="android:layout_margin">2dp</item>
+        <item name="android:layout_margin">3dp</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
-        <item name="android:elevation">4dp</item>
+        <item name="android:elevation">12dp</item>
         <item name="android:stateListAnimator">@animator/btn_raise</item>
     </style>
 
@@ -53,33 +53,33 @@
     <!-- Number section button -->
     <style name="NumBtn" parent="GridCellBase">
         <item name="android:background">@drawable/button_gradient_number</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:elevation">0dp</item>
-        <item name="android:stateListAnimator">@null</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:stateListAnimator">@animator/btn_raise</item>
     </style>
 
     <!-- Gray operator button in number section -->
     <style name="GrayBtn" parent="GridCellBase">
         <item name="android:background">@drawable/button_gradient_gray</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:elevation">0dp</item>
-        <item name="android:stateListAnimator">@null</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:stateListAnimator">@animator/btn_raise</item>
     </style>
 
     <!-- Green action button (DEL/AC) -->
     <style name="GreenBtn" parent="GridCellBase">
         <item name="android:background">@drawable/button_gradient_green</item>
-        <item name="android:layout_margin">2dp</item>
-        <item name="android:elevation">0dp</item>
-        <item name="android:stateListAnimator">@null</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:elevation">10dp</item>
+        <item name="android:stateListAnimator">@animator/btn_raise</item>
     </style>
 
     <!-- Orange action button (= / Ans) -->
     <style name="OrangeBtn" parent="GridCellBase">
         <item name="android:background">@drawable/button_gradient_orange</item>
         <item name="android:layout_margin">3dp</item>
-        <!-- Remove cast shadow to avoid blur on orange keys -->
-        <item name="android:elevation">0dp</item>
-        <item name="android:stateListAnimator">@null</item>
+        <!-- Add moderate elevation for 3D effect but not too much to avoid blur -->
+        <item name="android:elevation">8dp</item>
+        <item name="android:stateListAnimator">@animator/btn_raise</item>
     </style>
 </resources>

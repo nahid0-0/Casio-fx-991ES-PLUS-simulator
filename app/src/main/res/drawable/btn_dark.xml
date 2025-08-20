@@ -17,12 +17,20 @@
                     <corners android:radius="3dp"/>
                 </shape>
             </item>
-            <!-- Base surface (pressed darker) -->
+            <!-- Base surface (pressed darker) with enhanced border -->
             <item>
                 <shape android:shape="rectangle">
                     <gradient android:startColor="#324353" android:endColor="#233343" android:angle="135"/>
-                    <stroke android:width="1dp" android:color="#223242"/>
+                    <stroke android:width="2dp" android:color="#263542"/>
                     <corners android:radius="4dp"/>
+                </shape>
+            </item>
+            <!-- Inner border shadow ring -->
+            <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#00000000"/>
+                    <stroke android:width="1dp" android:color="#22000000"/>
+                    <corners android:radius="3dp"/>
                 </shape>
             </item>
         </layer-list>
@@ -44,12 +52,20 @@
                     <corners android:radius="3dp"/>
                 </shape>
             </item>
-            <!-- Surface -->
+            <!-- Surface with enhanced border -->
             <item>
                 <shape android:shape="rectangle">
                     <gradient android:startColor="#3a4a5a" android:endColor="#2a3a4a" android:angle="135"/>
-                    <stroke android:width="1dp" android:color="#2a3b4a"/>
+                    <stroke android:width="2dp" android:color="#263542"/>
                     <corners android:radius="4dp"/>
+                </shape>
+            </item>
+            <!-- Inner border shadow ring -->
+            <item android:left="1dp" android:right="1dp" android:top="1dp" android:bottom="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#00000000"/>
+                    <stroke android:width="1dp" android:color="#22000000"/>
+                    <corners android:radius="3dp"/>
                 </shape>
             </item>
         </layer-list>

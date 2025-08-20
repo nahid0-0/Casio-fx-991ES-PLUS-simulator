@@ -65,14 +65,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight="0.4"
             android:layout_marginBottom="4dp"
             android:background="@drawable/display_area_bg"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:orientation="vertical"
             android:padding="8dp"
-            android:minHeight="160dp">
+            android:minHeight="100dp">
 
             <!-- Status bar -->
             <LinearLayout
@@ -158,10 +158,11 @@
 
             <!-- Top row: SHIFT | ALPHA | D-PAD | MODE/SETUP | ON -->
 
-            <!-- Function Section: 6 columns x 4 rows -->
+            <!-- Top Function Row: SHIFT | ALPHA | D-PAD | MODE/SETUP | ON -->
             <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="42dp"
+                android:layout_height="63dp"
+                android:layout_marginBottom="8dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:columnCount="5"
@@ -170,12 +171,18 @@
                 android:useDefaultMargins="false">
 
                 <!-- SHIFT -->
+
+                <!-- SHIFT -->
                 <TextView
                     android:id="@+id/btnShift"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
                     android:layout_columnWeight="2"
+                    android:layout_marginTop="11dp"
                     android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/btn_dark"
                     android:clickable="true"
                     android:focusable="true"
@@ -183,32 +190,37 @@
                     android:text="SHIFT"
                     android:textColor="#ffff00"
                     android:textSize="8sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:elevation="10dp"
+                    android:stateListAnimator="@animator/btn_raise" />
 
                 <!-- ALPHA -->
                 <TextView
                     android:id="@+id/btnAlpha"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_row="0"
+                    android:layout_column="1"
                     android:layout_columnWeight="2"
+                    android:layout_marginTop="11dp"
                     android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/btn_dark"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
                     android:text="ALPHA"
-                    android:textColor="#ffffff"
+                    android:textColor="#ff69b4"
                     android:textSize="8sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:elevation="10dp"
+                    android:stateListAnimator="@animator/btn_raise" />
 
-                <!-- Directional Pad -->
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_columnWeight="3"
-                    android:layout_marginTop="-3dp"
                     android:layout_marginEnd="4dp"
-                    android:layout_marginBottom="-3dp"
                     android:background="@drawable/directional_pad_bg">
 
                     <GridLayout
@@ -316,14 +328,18 @@
                 <LinearLayout
                     android:id="@+id/btnMode"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
                     android:layout_columnWeight="2"
+                    android:layout_marginTop="11dp"
                     android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/btn_dark"
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:elevation="10dp"
+                    android:stateListAnimator="@animator/btn_raise">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -344,8 +360,10 @@
                 <TextView
                     android:id="@+id/btnOn"
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
                     android:layout_columnWeight="2"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/button_gradient_green"
                     android:clickable="true"
                     android:focusable="true"
@@ -353,29 +371,187 @@
                     android:text="ON"
                     android:textColor="#ffffff"
                     android:textSize="8sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:elevation="10dp"
+                    android:stateListAnimator="@animator/btn_raise" />
             </GridLayout>
 
+            <!-- Combined ALPHA & SHIFT Labels above Function Row 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="A"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SOLVE ="
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="B"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="∫∫"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="C"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="D"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="x!"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10ˣ"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="F"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="d/dx"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Function Section Row 1 -->
             <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="138dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
+                android:layout_height="41dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:columnCount="6"
                 android:padding="2dp"
-                android:rowCount="4"
+                android:rowCount="1"
                 android:useDefaultMargins="false">
 
                 <!-- Row 1 -->
                 <LinearLayout
                     android:id="@+id/btnCalc"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="SOLVE =" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -387,10 +563,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="∑" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="√̄□" />
                 </LinearLayout>
@@ -398,10 +570,6 @@
                 <LinearLayout
                     android:id="@+id/btnSquare"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="%" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -413,10 +581,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="x!" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="x⁻¹" />
                 </LinearLayout>
@@ -424,10 +588,6 @@
                 <LinearLayout
                     android:id="@+id/btnLog"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="10ˣ" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -439,22 +599,187 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="∫" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="d/dx" />
                 </LinearLayout>
+            </GridLayout>
+
+            <!-- Combined ALPHA & SHIFT Labels above Function Row 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="G"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="÷R"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="H"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="³√"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="I"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="x³"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="J"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ʸ√x"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="K"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="eˣ"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="L"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="DEC"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Function Section Row 2 -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:columnCount="6"
+                android:padding="2dp"
+                android:rowCount="1"
+                android:useDefaultMargins="false">
 
                 <!-- Row 2 -->
                 <LinearLayout
                     android:id="@+id/btnFraction"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="□/□" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -466,10 +791,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="³√" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="√" />
                 </LinearLayout>
@@ -477,10 +798,6 @@
                 <LinearLayout
                     android:id="@+id/btnCube"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="x³" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -492,10 +809,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="ʸ√x" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="xʸ" />
                 </LinearLayout>
@@ -503,10 +816,6 @@
                 <LinearLayout
                     android:id="@+id/btnLn"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="eˣ" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -518,22 +827,187 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="DEC" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="DEC" />
                 </LinearLayout>
+            </GridLayout>
+
+            <!-- Combined ALPHA & SHIFT Labels above Function Row 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="M"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SIN⁻¹"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="N"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COS⁻¹"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="O"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TAN⁻¹"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="P"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ln"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Q"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(-)"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="R"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SET UP"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Function Section Row 3 -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:columnCount="6"
+                android:padding="2dp"
+                android:rowCount="1"
+                android:useDefaultMargins="false">
 
                 <!-- Row 3 -->
                 <LinearLayout
                     android:id="@+id/btnNegate"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="r⟨1 r∠1" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -545,10 +1019,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="∠ •₉₉" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="Abs" />
                 </LinearLayout>
@@ -556,10 +1026,6 @@
                 <LinearLayout
                     android:id="@+id/btnHyp"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="P₆" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -571,10 +1037,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="sin⁻¹" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="sin" />
                 </LinearLayout>
@@ -582,10 +1044,6 @@
                 <LinearLayout
                     android:id="@+id/btnCos"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="cos⁻¹" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -597,22 +1055,187 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="tan⁻¹" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="tan" />
                 </LinearLayout>
+            </GridLayout>
+
+            <!-- Combined ALPHA & SHIFT Labels above Function Row 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="S"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="r⟨1 r∠1"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="T"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="∠ •₉₉"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="U"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="P₆"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="V"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="STO ← i"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="W"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ENG"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X"
+                        android:textColor="#ff69b4"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BIN"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Function Section Row 4 -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="41dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:columnCount="6"
+                android:padding="2dp"
+                android:rowCount="1"
+                android:useDefaultMargins="false">
 
                 <!-- Row 4 -->
                 <LinearLayout
                     android:id="@+id/btnRcl"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="STO ← i" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -624,10 +1247,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="ENG" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="ENG" />
                 </LinearLayout>
@@ -635,10 +1254,6 @@
                 <LinearLayout
                     android:id="@+id/btnParenOpen"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="%" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -650,10 +1265,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="X" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text=")" />
                 </LinearLayout>
@@ -661,10 +1272,6 @@
                 <LinearLayout
                     android:id="@+id/btnMPlus"
                     style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnSecondary"
-                        android:text="M- M" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -676,10 +1283,6 @@
                     style="@style/FuncBtn">
 
                     <TextView
-                        style="@style/BtnSecondary"
-                        android:text="BIN" />
-
-                    <TextView
                         style="@style/BtnMain"
                         android:text="BIN" />
                 </LinearLayout>
@@ -689,6 +1292,7 @@
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="211dp"
+                android:layout_marginTop="8dp"
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:columnCount="6"
