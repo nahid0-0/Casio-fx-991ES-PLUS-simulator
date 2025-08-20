@@ -181,7 +181,7 @@
                     android:focusable="true"
                     android:gravity="center"
                     android:text="SHIFT"
-                    android:textColor="#ffffff"
+                    android:textColor="#ffff00"
                     android:textSize="8sp"
                     android:textStyle="bold" />
 
@@ -388,7 +388,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="∫∫" />
+                        android:text="∑" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -440,7 +440,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="d/dx" />
+                        android:text="∫" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -449,16 +449,16 @@
 
                 <!-- Row 2 -->
                 <LinearLayout
-                    android:id="@+id/btnDegMinSec"
+                    android:id="@+id/btnFraction"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="÷R" />
+                        android:text="□/□" />
 
                     <TextView
                         style="@style/BtnMain"
-                        android:text="°&apos;&quot;" />
+                        android:text="□/□" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -493,7 +493,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="√6" />
+                        android:text="ʸ√x" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -559,7 +559,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="P₆₁" />
+                        android:text="P₆" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -593,16 +593,16 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btnHex"
+                    android:id="@+id/btnTan"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="HEX" />
+                        android:text="tan⁻¹" />
 
                     <TextView
                         style="@style/BtnMain"
-                        android:text="HEX" />
+                        android:text="tan" />
                 </LinearLayout>
 
                 <!-- Row 4 -->
@@ -768,7 +768,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="MATRIX" />
+                        android:text="A" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -839,7 +839,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="OCT" />
+                        android:text="B" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -918,7 +918,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="nPr" />
+                        android:text="C" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -958,7 +958,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="RanInt" />
+                        android:text="D" />
 
                     <TextView
                         style="@style/BtnMain"
@@ -971,7 +971,7 @@
 
                     <TextView
                         style="@style/BtnSecondary"
-                        android:text="π" />
+                        android:text="E" />
 
                     <TextView
                         style="@style/BtnMain"
