@@ -1,12 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <gradient
-        android:startColor="#4a7c59"
-        android:endColor="#3a6b49"
-        android:angle="135" />
-    <stroke
-        android:width="1dp"
-        android:color="#34495e" />
-    <corners android:radius="4dp" />
-</shape>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <!-- Bottom shadow band (pressed) -->
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <solid android:color="#33000000"/>
+                    <size android:height="2dp"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+            <!-- Crisp inner top rim -->
+            <item android:top="1dp" android:left="1dp" android:right="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#10FFFFFF"/>
+                    <size android:height="1dp"/>
+                    <corners android:radius="3dp"/>
+                </shape>
+            </item>
+            <!-- Subtle inner darkening gradient (inset) -->
+            <item android:left="2dp" android:right="2dp" android:top="1dp" android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <gradient android:startColor="#00000000" android:endColor="#14000000" android:angle="270"/>
+                    <corners android:radius="3dp"/>
+                </shape>
+            </item>
+            <!-- Solid darker surface -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#355c43"/>
+                    <stroke android:width="1dp" android:color="#2b4636"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <!-- Bottom shadow band (normal) -->
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <solid android:color="#22000000"/>
+                    <size android:height="3dp"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+            <!-- Inner crisp top rim -->
+            <item android:top="1dp" android:left="1dp" android:right="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#11FFFFFF"/>
+                    <size android:height="1dp"/>
+                    <corners android:radius="3dp"/>
+                </shape>
+            </item>
+            <!-- Hard left/right bevels inset from border -->
+            <item android:left="1dp" android:right="0dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#14FFFFFF"/>
+                    <size android:width="1dp"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+            <item android:right="1dp" android:left="0dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#22000000"/>
+                    <size android:width="1dp"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+            <!-- Bottom inner shadow line (inset) -->
+            <item android:bottom="1dp" android:left="1dp" android:right="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="#22000000"/>
+                    <size android:height="1dp"/>
+                    <corners android:radius="3dp"/>
+                </shape>
+            </item>
+            <!-- Subtle inner darkening gradient (inset) -->
+            <item android:left="2dp" android:right="2dp" android:top="1dp" android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <gradient android:startColor="#00000000" android:endColor="#14000000" android:angle="270"/>
+                    <corners android:radius="3dp"/>
+                </shape>
+            </item>
+            <!-- Solid surface -->
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="#3a6b49"/>
+                    <stroke android:width="1dp" android:color="#2d4d3a"/>
+                    <corners android:radius="4dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

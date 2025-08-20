@@ -2,6 +2,7 @@ package com.example.calculator
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -9,11 +10,23 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 object Native {
+    private var isLibraryLoaded = false
+    
     init {
-        System.loadLibrary("calc")
+        try {
+            System.loadLibrary("calc")
+            isLibraryLoaded = true
+            Log.d("Calculator", "Native library loaded successfully")
+        } catch (e: Exception) {
+            Log.e("Calculator", "Failed to load native library: ${e.message}")
+            isLibraryLoaded = false
+        }
     }
+    
     external fun calc(a: Double, op: Char, b: Double): Double
     external fun parseExpression(expression: String): String
+    
+    fun isAvailable(): Boolean = isLibraryLoaded
 }
 
 class MainActivity : AppCompatActivity() {
@@ -24,19 +37,38 @@ class MainActivity : AppCompatActivity() {
     private var isNewCalculation = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        
-        Log.d("Calculator", "Advanced Calculator with C++ Backend loaded!")
+        try {
+            super.onCreate(savedInstanceState)
+            Log.d("Calculator", "Starting calculator initialization...")
+            
+            setContentView(R.layout.activity_main)
+            Log.d("Calculator", "Layout loaded successfully")
 
-        display = findViewById(R.id.txtDisplay)
-        result = findViewById(R.id.txtResult)
+            display = findViewById(R.id.txtDisplay)
+            result = findViewById(R.id.txtResult)
+            Log.d("Calculator", "Display elements found")
 
-        clearAll()
-        setupButtons()
+            clearAll()
+            Log.d("Calculator", "Display cleared")
+            
+            // Setup all calculator buttons
+            setupButtons()
+            Log.d("Calculator", "Buttons setup complete")
 
-        Log.d("Calculator", "Calculator interface initialized successfully!")
-        Toast.makeText(this, "Advanced Calculator Ready!", Toast.LENGTH_SHORT).show()
+            val statusMessage = if (Native.isAvailable()) {
+                "✅ Calculator Ready!\nC++ Engine: Loaded"
+            } else {
+                "⚠️ Calculator Ready!\nC++ Engine: Failed to Load (UI Mode Only)"
+            }
+            
+            Toast.makeText(this, statusMessage, Toast.LENGTH_LONG).show()
+            Log.d("Calculator", "Calculator initialization complete: ${statusMessage}")
+            
+        } catch (e: Exception) {
+            Log.e("Calculator", "FATAL ERROR during initialization", e)
+            Toast.makeText(this, "Calculator failed to start: ${e.message}", Toast.LENGTH_LONG).show()
+            // Don't crash, just show error
+        }
     }
 
     private fun setupButtons() {
@@ -46,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9
         )
         digitButtons.forEach { id ->
-            findViewById<LinearLayout>(id).setOnClickListener {
+            findViewById<View>(id)?.setOnClickListener {
                 val digitText = when(id) {
                     R.id.btn0 -> "0"
                     R.id.btn1 -> "1"
@@ -65,83 +97,93 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Setup decimal point
-        findViewById<LinearLayout>(R.id.btnDot).setOnClickListener { 
+        findViewById<View>(R.id.btnDot)?.setOnClickListener { 
             appendToExpression(".") 
         }
 
         // Setup basic operators
-        findViewById<LinearLayout>(R.id.btnAdd).setOnClickListener { 
+        findViewById<View>(R.id.btnAdd)?.setOnClickListener { 
             appendToExpression(" + ") 
         }
-        findViewById<LinearLayout>(R.id.btnSubtract).setOnClickListener { 
+        findViewById<View>(R.id.btnSubtract)?.setOnClickListener { 
             appendToExpression(" - ") 
         }
-        findViewById<LinearLayout>(R.id.btnMultiply).setOnClickListener { 
+        findViewById<View>(R.id.btnMultiply)?.setOnClickListener { 
             appendToExpression(" * ") 
         }
-        findViewById<LinearLayout>(R.id.btnDivide).setOnClickListener { 
+        findViewById<View>(R.id.btnDivide)?.setOnClickListener { 
             appendToExpression(" / ") 
         }
 
         // Setup parentheses
-        findViewById<LinearLayout>(R.id.btnBracketOpen).setOnClickListener { 
+        findViewById<View>(R.id.btnParenOpen)?.setOnClickListener { 
             appendToExpression("(") 
         }
-        findViewById<LinearLayout>(R.id.btnBracketClose).setOnClickListener { 
+        findViewById<View>(R.id.btnParenClose)?.setOnClickListener { 
             appendToExpression(")") 
         }
 
         // Setup advanced functions
-        findViewById<LinearLayout>(R.id.btnSqrt).setOnClickListener { 
+        findViewById<View>(R.id.btnSqrt)?.setOnClickListener { 
             appendToExpression("sqrt(") 
         }
-        findViewById<LinearLayout>(R.id.btnSquare).setOnClickListener { 
+        findViewById<View>(R.id.btnSquare)?.setOnClickListener { 
             // If expression is empty or just calculated, use last result
             if (expression.isEmpty() && lastResult != null) {
                 expression.append(lastResult)
             }
             appendToExpression("^2") 
         }
-        findViewById<LinearLayout>(R.id.btnXPower).setOnClickListener { 
-            appendToExpression("^") 
-        }
-        findViewById<LinearLayout>(R.id.btnPower).setOnClickListener { 
+        findViewById<View>(R.id.btnPower)?.setOnClickListener { 
             appendToExpression("inv(") 
         }
-        findViewById<LinearLayout>(R.id.btnLog).setOnClickListener { 
+        findViewById<View>(R.id.btnPowerXY)?.setOnClickListener { 
+            appendToExpression("^") 
+        }
+        findViewById<View>(R.id.btnLog)?.setOnClickListener { 
             appendToExpression("log(") 
         }
-        findViewById<LinearLayout>(R.id.btnLn).setOnClickListener { 
+        findViewById<View>(R.id.btnLn)?.setOnClickListener { 
             appendToExpression("ln(") 
         }
-        findViewById<LinearLayout>(R.id.btnSin).setOnClickListener { 
+        findViewById<View>(R.id.btnSin)?.setOnClickListener { 
             appendToExpression("sin(") 
         }
-        findViewById<LinearLayout>(R.id.btnCos).setOnClickListener { 
+        findViewById<View>(R.id.btnCos)?.setOnClickListener { 
             appendToExpression("cos(") 
+        }
+        findViewById<View>(R.id.btnCube)?.setOnClickListener { 
+            // If expression is empty or just calculated, use last result
+            if (expression.isEmpty() && lastResult != null) {
+                expression.append(lastResult)
+            }
+            appendToExpression("^3") 
+        }
+        findViewById<View>(R.id.btnAbs)?.setOnClickListener { 
+            appendToExpression("abs(") 
         }
 
         // Setup special buttons
-        findViewById<LinearLayout>(R.id.btnNegative).setOnClickListener { 
+        findViewById<View>(R.id.btnNegate)?.setOnClickListener { 
             appendToExpression("(-") 
         }
 
         // Setup scientific notation
-        findViewById<LinearLayout>(R.id.btnExp).setOnClickListener { 
+        findViewById<View>(R.id.btnExp)?.setOnClickListener { 
             appendToExpression("*10^") 
         }
 
         // Setup answer button (use last result)
-        findViewById<LinearLayout>(R.id.btnAns).setOnClickListener { 
+        findViewById<View>(R.id.btnAns)?.setOnClickListener { 
             if (lastResult != null) {
                 appendToExpression(lastResult!!)
             }
         }
 
         // Setup control buttons
-        findViewById<LinearLayout>(R.id.btnEquals).setOnClickListener { calculateExpression() }
-        findViewById<LinearLayout>(R.id.btnAC).setOnClickListener { clearAll() }
-        findViewById<LinearLayout>(R.id.btnDel).setOnClickListener { deleteLast() }
+        findViewById<View>(R.id.btnEquals)?.setOnClickListener { calculateExpression() }
+        findViewById<View>(R.id.btnAC)?.setOnClickListener { clearAll() }
+        findViewById<View>(R.id.btnDel)?.setOnClickListener { deleteLast() }
 
         // Static buttons (not implemented yet)
         setupStaticButtons()
@@ -157,12 +199,12 @@ class MainActivity : AppCompatActivity() {
             try {
                 when (id) {
                     R.id.btnShift, R.id.btnOn -> {
-                        findViewById<Button>(id).setOnClickListener {
+                        findViewById<Button>(id)?.setOnClickListener {
                             Toast.makeText(this, "Function not implemented yet", Toast.LENGTH_SHORT).show()
                         }
                     }
                     else -> {
-                        findViewById<LinearLayout>(id).setOnClickListener {
+                        findViewById<View>(id)?.setOnClickListener {
                             Toast.makeText(this, "Function not implemented yet", Toast.LENGTH_SHORT).show()
                         }
                     }
@@ -173,7 +215,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun appendToExpression(text: String) {
+    // HELPER FUNCTIONS - These work with just the display elements
+    fun appendToExpression(text: String) {
         // If we just calculated and user starts typing a new number, clear the expression
         if (isNewCalculation && text.matches(Regex("[0-9.]"))) {
             expression.clear()
@@ -194,7 +237,7 @@ class MainActivity : AppCompatActivity() {
         updateDisplay()
     }
 
-    private fun calculateExpression() {
+    fun calculateExpression() {
         val expressionText = expression.toString().trim()
         
         if (expressionText.isEmpty() || expressionText == "0") {
@@ -202,7 +245,13 @@ class MainActivity : AppCompatActivity() {
         }
         
         try {
-            Log.d("Calculator", "Sending expression to C++: $expressionText")
+            Log.d("Calculator", "Attempting to evaluate: $expressionText")
+            
+            if (!Native.isAvailable()) {
+                result.text = "Native library not available - UI only mode"
+                Log.w("Calculator", "Native library not loaded, cannot evaluate expressions")
+                return
+            }
             
             // Send the expression to C++ parsing and evaluation system
             val parseResult = Native.parseExpression(expressionText)
@@ -238,14 +287,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun deleteLast() {
+    fun deleteLast() {
         if (expression.isNotEmpty()) {
             expression.deleteCharAt(expression.length - 1)
             updateDisplay()
         }
     }
 
-    private fun clearAll() {
+    fun clearAll() {
         expression.clear()
         display.text = "0"
         result.text = ""
@@ -256,5 +305,10 @@ class MainActivity : AppCompatActivity() {
     private fun updateDisplay() {
         display.text = if (expression.isEmpty()) "0" else expression.toString()
     }
-}
 
+    // PUBLIC METHODS FOR YOUR NEW UI TO USE:
+    // - appendToExpression(text: String) - Add text to calculator
+    // - calculateExpression() - Evaluate the current expression  
+    // - clearAll() - Reset everything
+    // - deleteLast() - Remove last character
+}

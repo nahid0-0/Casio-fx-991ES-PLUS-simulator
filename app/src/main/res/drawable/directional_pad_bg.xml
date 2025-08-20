@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="oval">
-    <gradient
-        android:startColor="#4a5a6b"
-        android:endColor="#3a4a5b"
-        android:angle="135" />
-    <stroke
-        android:width="2dp"
-        android:color="#34495e" />
-</shape>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Outer base disc with subtle drop effect -->
+    <item>
+        <shape android:shape="oval">
+            <gradient android:startColor="#465767" android:endColor="#334352" android:angle="135"/>
+            <stroke android:width="2dp" android:color="#263542"/>
+        </shape>
+    </item>
+    <!-- Bottom shadow arc (more realistic) -->
+    <item android:top="10dp" android:left="4dp" android:right="4dp">
+        <shape android:shape="oval">
+            <gradient android:startColor="#00000000" android:endColor="#22000000" android:angle="270"/>
+        </shape>
+    </item>
+    <!-- Inner recessed disc to create 3D rim -->
+    <item android:top="3dp" android:bottom="3dp" android:left="3dp" android:right="3dp">
+        <shape android:shape="oval">
+            <gradient android:startColor="#3a4a5b" android:endColor="#2a3a4b" android:angle="145"/>
+            <stroke android:width="1dp" android:color="#2a3947"/>
+        </shape>
+    </item>
+    <!-- Border shadow ring placed on rim -->
+    <item android:top="2dp" android:bottom="2dp" android:left="2dp" android:right="2dp">
+        <shape android:shape="oval">
+            <solid android:color="#00000000"/>
+            <stroke android:width="2dp" android:color="#22000000"/>
+        </shape>
+    </item>
+</layer-list>
