@@ -143,7 +143,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.btnLog)?.setOnClickListener { 
             appendToExpression("log(") 
         }
-        findViewById<View>(R.id.btnLn)?.setOnClickListener { 
+        findViewById<View>(R.id.btnLnNew)?.setOnClickListener { 
             appendToExpression("ln(") 
         }
         findViewById<View>(R.id.btnSin)?.setOnClickListener { 
@@ -152,20 +152,20 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.btnCos)?.setOnClickListener { 
             appendToExpression("cos(") 
         }
-        findViewById<View>(R.id.btnCube)?.setOnClickListener { 
+        findViewById<View>(R.id.btnSquareNew)?.setOnClickListener { 
             // If expression is empty or just calculated, use last result
             if (expression.isEmpty() && lastResult != null) {
                 expression.append(lastResult)
             }
-            appendToExpression("^3") 
+            appendToExpression("^2") 
         }
         findViewById<View>(R.id.btnAbs)?.setOnClickListener { 
             appendToExpression("abs(") 
         }
 
         // Setup special buttons
-        findViewById<View>(R.id.btnNegate)?.setOnClickListener { 
-            appendToExpression("(-") 
+        findViewById<View>(R.id.btnAbsNew)?.setOnClickListener { 
+            appendToExpression("abs(") 
         }
 
         // Setup scientific notation

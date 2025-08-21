@@ -396,15 +396,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="A"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="SOLVE ="
                         android:textColor="#ffff00"
                         android:textSize="6sp"
@@ -421,8 +412,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="B"
-                        android:textColor="#ff69b4"
+                        android:text="d/dx □"
+                        android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="3dp" />
@@ -430,8 +421,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="∫∫"
-                        android:textColor="#ffff00"
+                        android:text=":"
+                        android:textColor="#ff69b4"
                         android:textSize="6sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -446,8 +437,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="C"
-                        android:textColor="#ff69b4"
+                        android:text="x³"
+                        android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="3dp" />
@@ -455,8 +446,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="%"
-                        android:textColor="#ffff00"
+                        android:text="DEC"
+                        android:textColor="#87CEEB"
                         android:textSize="6sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -496,16 +487,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="E"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10ˣ"
+                        android:text="x!"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -521,16 +503,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="F"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="d/dx"
+                        android:text="Σ"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -559,12 +532,12 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btnRadicalTemplate"
+                    android:id="@+id/btnIntegration"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnMain"
-                        android:text="√̄□" />
+                        android:text="∫ᵇₐ" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -586,21 +559,21 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnInverse"
+                    style="@style/FuncBtn">
+
+                    <TextView
+                        style="@style/BtnMain"
+                        android:text="x⁻¹" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/btnLog"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnMain"
-                        android:text="log" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnDerivative"
-                    style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnMain"
-                        android:text="d/dx" />
+                        android:text="log□□" />
                 </LinearLayout>
             </GridLayout>
 
@@ -674,83 +647,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="I"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:text="x³"
                         android:textColor="#ffff00"
-                        android:textSize="6sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="J"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ʸ√x"
-                        android:textColor="#ffff00"
-                        android:textSize="6sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="K"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="eˣ"
-                        android:textColor="#ffff00"
-                        android:textSize="6sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="L"
-                        android:textColor="#ff69b4"
                         android:textSize="6sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="3dp" />
@@ -759,7 +657,82 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="DEC"
+                        android:textColor="#87CEEB"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="□√"
                         android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="HEX"
+                        android:textColor="#87CEEB"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10^□"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BIN"
+                        android:textColor="#87CEEB"
+                        android:textSize="6sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="e^x"
+                        android:textColor="#ffff00"
+                        android:textSize="6sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="3dp" />
+                        
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OCT"
+                        android:textColor="#87CEEB"
                         android:textSize="6sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -796,12 +769,12 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btnCube"
+                    android:id="@+id/btnSquareNew"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnMain"
-                        android:text="x³" />
+                        android:text="x²" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -810,25 +783,25 @@
 
                     <TextView
                         style="@style/BtnMain"
-                        android:text="xʸ" />
+                        android:text="x^□" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btnLn"
+                    android:id="@+id/btnLogNew"
+                    style="@style/FuncBtn">
+
+                    <TextView
+                        style="@style/BtnMain"
+                        android:text="log" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnLnNew"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnMain"
                         android:text="ln" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnDec"
-                    style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnMain"
-                        android:text="DEC" />
                 </LinearLayout>
             </GridLayout>
 
@@ -848,20 +821,19 @@
                     android:layout_weight="1"
                     android:orientation="horizontal"
                     android:gravity="center">
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
                     
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="M"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="SIN⁻¹"
+                        android:text="Abs"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -877,41 +849,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="N"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="COS⁻¹"
-                        android:textColor="#ffff00"
-                        android:textSize="6sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                    
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="O"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TAN⁻¹"
+                        android:text="Abs"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -936,7 +874,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ln"
+                        android:text="sin⁻¹"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -961,7 +899,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="(-)"
+                        android:text="cos⁻¹"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -986,7 +924,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SET UP"
+                        android:text="tan⁻¹"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -1006,12 +944,12 @@
 
                 <!-- Row 3 -->
                 <LinearLayout
-                    android:id="@+id/btnNegate"
+                    android:id="@+id/btnAbsNew"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnMain"
-                        android:text="(-)" />
+                        android:text="Abs" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -1130,16 +1068,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="U"
-                        android:textColor="#ff69b4"
-                        android:textSize="6sp"
-                        android:textStyle="bold"
-                        android:layout_marginEnd="3dp" />
-                        
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="P₆"
+                        android:text="%"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -1155,8 +1084,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="V"
-                        android:textColor="#ff69b4"
+                        android:text=","
+                        android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="3dp" />
@@ -1164,8 +1093,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="STO ← i"
-                        android:textColor="#ffff00"
+                        android:text="x"
+                        android:textColor="#ff69b4"
                         android:textSize="6sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -1214,7 +1143,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BIN"
+                        android:text="M+"
                         android:textColor="#ffff00"
                         android:textSize="6sp"
                         android:textStyle="bold" />
@@ -1270,21 +1199,21 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/btnMPlus"
+                    android:id="@+id/btnStoD"
+                    style="@style/FuncBtn">
+
+                    <TextView
+                        style="@style/BtnMain"
+                        android:text="S⇔D" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btnMPlusNew"
                     style="@style/FuncBtn">
 
                     <TextView
                         style="@style/BtnMain"
                         android:text="M+" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/btnBin"
-                    style="@style/FuncBtn">
-
-                    <TextView
-                        style="@style/BtnMain"
-                        android:text="BIN" />
                 </LinearLayout>
             </GridLayout>
 
